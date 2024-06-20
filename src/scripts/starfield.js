@@ -19,18 +19,26 @@ canvas.addEventListener('mousemove', (event) => {
 });
 
 class Star {
-    constructor(x, y, radius, velocityX, velocityY) {
+    constructor(x, y, radius, color, velocityX, velocityY) {
         this.x = x;
         this.y = y;
         this.radius = radius;
+        this.color = color;
         this.velocityX = velocityX;
         this.velocityY = velocityY;
+        this.originalX = x; // Posição original
+        this.originalY = y; // Posição original
     }
 
     draw() {
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+        gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
+        gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.5)');
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = gradient;
         ctx.fill();
         ctx.closePath();
     }
@@ -39,23 +47,36 @@ class Star {
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const maxDistance = 100;
-        const force = (maxDistance - distance) / maxDistance;
-        const forceX = force * (dx / distance);
-        const forceY = force * (dy / distance);
 
-        if (distance < maxDistance) {
-            this.x -= forceX * this.velocityX;
-            this.y -= forceY * this.velocityY;
-        } else {
-            this.x += this.velocityX;
-            this.y += this.velocityY;
+        // Distância máxima para interação com o cursor
+        const maxDistance = 150;
+
+        // Força de atração
+        let force = (maxDistance - distance) / maxDistance;
+
+        if (force < 0) force = 0;
+        if (force > 1) force = 1;
+
+        // Limitar a força para evitar movimentos bruscos
+        const maxForce = 0.08;
+        const forceX = Math.sign(dx) * Math.min(force * Math.abs(dx) * maxForce, maxForce);
+        const forceY = Math.sign(dy) * Math.min(force * Math.abs(dy) * maxForce, maxForce);
+
+        // Atualizar posição da estrela
+        this.x += this.velocityX + forceX;
+        this.y += this.velocityY + forceY;
+
+        // Manter a estrela dentro dos limites do canvas
+        if (this.x > canvas.width + this.radius) {
+            this.x = -this.radius;
+        } else if (this.x < -this.radius) {
+            this.x = canvas.width + this.radius;
         }
-
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
+        if (this.y > canvas.height + this.radius) {
+            this.y = -this.radius;
+        } else if (this.y < -this.radius) {
+            this.y = canvas.height + this.radius;
+        }
 
         this.draw();
     }
@@ -63,14 +84,15 @@ class Star {
 
 function createStars() {
     stars = [];
-    const numberOfStars = (canvas.width * canvas.height) / 8000;
+    const numberOfStars = Math.floor((canvas.width * canvas.height) / 6000);
     for (let i = 0; i < numberOfStars; i++) {
-        const radius = Math.random() * 1.5;
+        const radius = Math.random() * 2 + 1;
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-        const velocityX = (Math.random() * 0.5) - 0.25;
-        const velocityY = (Math.random() * 0.5) - 0.25;
-        stars.push(new Star(x, y, radius, velocityX, velocityY));
+        const color = 'white';
+        const velocityX = (Math.random() - 0.5) * 0.6;
+        const velocityY = (Math.random() - 0.5) * 0.6;
+        stars.push(new Star(x, y, radius, color, velocityX, velocityY));
     }
 }
 
