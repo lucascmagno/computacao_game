@@ -57,7 +57,13 @@ function startGame() {
 }
 
 function showQuestion(question) {
-    questionElement.innerText = question.question;
+    questionElement.classList.remove('fade-in');
+    questionElement.classList.add('fade-out');
+    setTimeout(() => {
+        questionElement.innerText = question.question;
+        questionElement.classList.remove('fade-out');
+        questionElement.classList.add('fade-in');
+    }, 500);
     answerRevealElement.innerText = '';
     trueButton.dataset.correct = question.correctAnswer;
     falseButton.dataset.correct = !question.correctAnswer;
@@ -75,6 +81,7 @@ function selectAnswer(e) {
 function showAnswer(correct) {
     answerRevealElement.innerText = questions[currentQuestionIndex].explanation;
     answerRevealElement.classList.remove('hide');
+    answerRevealElement.classList.add('fade-in');
     nextButton.classList.remove('hide');
     trueButton.disabled = true;
     falseButton.disabled = true;
@@ -96,6 +103,7 @@ function nextQuestion() {
 function showScore() {
     scoreElement.innerText = `Você acertou ${score} de ${questions.length} perguntas.`;
     scoreContainer.classList.remove('hide');
+    scoreContainer.classList.add('fade-in');
     questionContainer.classList.add('hide');
     answerButtonsElement.classList.add('hide');
     nextButton.classList.add('hide');

@@ -3,29 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz do Curso de Licenciatura em Computação</title>
-    <link rel="stylesheet" href="./src/styles/style.css">
+    <title>Quiz de Licenciatura em Computação</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/styles/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Quiz do Curso de Licenciatura em Computação</h1>
-        <div id="quiz-container">
-            <div id="question-container">
-                <p id="question">Pergunta vai aqui</p>
-            </div>
-            <div id="answer-buttons" class="btn-container">
-                <button class="btn" id="true-btn">Verdadeiro</button>
-                <button class="btn" id="false-btn">Falso</button>
-            </div>
-            <p id="answer-reveal" class="hide"></p>
-            <button id="next-btn" class="next-btn hide">Próxima</button>
+    <canvas id="starfield"></canvas>
+    <div class="container" id="question-container">
+        <h1 id="question">Pergunta aqui</h1>
+        <div class="btn-container" id="answer-buttons">
+            <button class="btn" id="true-btn">Verdade</button>
+            <button class="btn" id="false-btn">Falso</button>
         </div>
-        <div id="score-container" class="hide">
-            <p id="score"></p>
-            <button id="restart-btn" class="next-btn">Reiniciar Quiz</button>
-        </div>
+        <div id="answer-reveal" class="hide"></div>
+        <button class="next-btn" id="next-btn">Próxima</button>
+    </div>
+    <div class="container hide" id="score-container">
+        <h1 id="score">Placar aqui</h1>
+        <button class="btn" id="restart-btn">Refazer Quiz</button>
     </div>
     <script src="./src/scripts/script.js"></script>
+    <script src="./src/scripts/starfield.js"></script>
 </body>
 </html>

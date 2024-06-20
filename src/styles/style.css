@@ -1,28 +1,61 @@
 body {
     font-family: 'Press Start 2P', cursive;
-    background-color: #222;
-    color: #fff;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    color: #fff;
+    background: black;
+}
+
+#starfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 .container {
-    background: #333;
+    background: rgba(0, 0, 0, 0.7);
     border: 4px solid #00ff00;
     border-radius: 8px;
     width: 80%;
     max-width: 600px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 h1 {
     font-size: 1.5em;
     margin-bottom: 20px;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+    animation: textGlow 1.5s infinite alternate;
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+    }
+    to {
+        text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+    }
 }
 
 .btn-container {
@@ -41,11 +74,15 @@ h1 {
     border-radius: 5px;
     font-size: 1em;
     text-transform: uppercase;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .btn:hover {
     background-color: #00cc00;
     border-color: #009900;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 255, 0, 0.5);
+    color: #fff;
 }
 
 .next-btn {
@@ -58,31 +95,62 @@ h1 {
     display: none;
     font-size: 1em;
     text-transform: uppercase;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .next-btn:hover {
     background-color: #cc00cc;
     border-color: #990099;
-}
-
-.correct {
-    background-color: #28a745;
-}
-
-.wrong {
-    background-color: #dc3545;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(255, 0, 255, 0.5);
+    color: #fff;
 }
 
 .hide {
     display: none;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes revealAnswer {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 #answer-reveal {
-    margin-top: 20px;
-    font-size: 1em;
-    background-color: #444;
-    padding: 10px;
-    border-radius: 5px;
-    border: 2px solid #00ff00;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    animation: revealAnswer 0.5s forwards;
 }
