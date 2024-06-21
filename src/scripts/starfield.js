@@ -18,6 +18,11 @@ canvas.addEventListener('mousemove', (event) => {
     mouse.y = event.clientY;
 });
 
+canvas.addEventListener('mouseout', () => {
+    mouse.x = null;
+    mouse.y = null;
+});
+
 class Star {
     constructor(x, y, radius, color, velocityX, velocityY) {
         this.x = x;
@@ -26,8 +31,8 @@ class Star {
         this.color = color;
         this.velocityX = velocityX;
         this.velocityY = velocityY;
-        this.originalX = x; // Posição original
-        this.originalY = y; // Posição original
+        this.originalX = x;
+        this.originalY = y;
     }
 
     draw() {
@@ -44,29 +49,22 @@ class Star {
     }
 
     update() {
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
+        const dx = (mouse.x || this.originalX) - this.x;
+        const dy = (mouse.y || this.originalY) - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        // Distância máxima para interação com o cursor
         const maxDistance = 150;
-
-        // Força de atração
         let force = (maxDistance - distance) / maxDistance;
-
         if (force < 0) force = 0;
         if (force > 1) force = 1;
 
-        // Limitar a força para evitar movimentos bruscos
         const maxForce = 0.08;
         const forceX = Math.sign(dx) * Math.min(force * Math.abs(dx) * maxForce, maxForce);
         const forceY = Math.sign(dy) * Math.min(force * Math.abs(dy) * maxForce, maxForce);
 
-        // Atualizar posição da estrela
         this.x += this.velocityX + forceX;
         this.y += this.velocityY + forceY;
 
-        // Manter a estrela dentro dos limites do canvas
         if (this.x > canvas.width + this.radius) {
             this.x = -this.radius;
         } else if (this.x < -this.radius) {
