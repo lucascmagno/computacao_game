@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz de Licenciatura em Computação</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/styles/style.css">
+    <link rel="stylesheet" href="./src/styles/home.css">
 </head>
 <body>
-    <canvas id="starfield"></canvas>
-    <div class="container" id="question-container">
-        <h1 id="question">Pergunta aqui</h1>
-        <div class="btn-container" id="answer-buttons">
-            <button class="btn" id="true-btn">Verdade</button>
-            <button class="btn" id="false-btn">Falso</button>
-        </div>
-        <div id="answer-reveal" class="hide"></div>
-        <button class="next-btn" id="next-btn">Próxima</button>
+    <div id="intro-container">
+        <h1>Bem-vindo ao Quiz de Licenciatura em Computação!</h1>
+        <img max-width="50%" src="./src/img/tux-linux-penguin.gif" alt="Imagem de Computação">
+
+        <p>Teste seus conhecimentos sobre a licenciatura em computação com nosso quiz. Responda às perguntas e veja o quanto você sabe sobre essa área fascinante!</p>
+        <button id="start-btn"><a href="./quiz.html" target="_self">Iniciar Quiz</a></button>
     </div>
-    <div class="container hide" id="score-container">
-        <h1 id="score">Placar aqui</h1>
-        <button class="btn" id="restart-btn">Refazer Quiz</button>
-    </div>
-    <script src="./src/scripts/script.js"></script>
     <script src="./src/scripts/starfield.js"></script>
+    <script src="./src/scripts/script.js"></script>
 </body>
 </html>
