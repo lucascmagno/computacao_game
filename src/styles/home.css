@@ -12,8 +12,7 @@
 #intro-container img {
     max-width: 100%;
     border-radius: 10px;
-    margin-top: 20px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Sombra ao redor da imagem */
+    margin-top: 20px;/* Sombra ao redor da imagem */
 }
 
 #intro-container p {
