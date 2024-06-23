@@ -85,6 +85,14 @@ h1 {
     color: #fff;
 }
 
+
+.next-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+
 .next-btn {
     background-color: #ff00ff;
     color: #222;
@@ -185,4 +193,26 @@ h1 {
 @keyframes flashRed {
     from { background-color: #ff0000; }
     to { background-color: black; }
+}
+
+body.flash-green {
+    animation: flashGreen 0.3s;
+}
+
+body.flash-red {
+    animation: flashRed 0.3s;
+}
+
+@keyframes flashGreen {
+    from { background-color: #00ff00; }
+    to { background-color: #000; }
+}
+
+@keyframes flashRed {
+    from { background-color: #ff0000; }
+    to { background-color: #000; }
+}
+
+.show {
+    display: block;
 }

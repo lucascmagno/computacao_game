@@ -90,6 +90,7 @@ function showAnswer(correct) {
     answerRevealElement.classList.remove('hide');
     answerRevealElement.classList.add('fade-in');
     nextButton.classList.remove('hide');
+    nextButton.classList.add('show');
     trueButton.disabled = true;
     falseButton.disabled = true;
 }
