@@ -1,8 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+html{
+    box-sizing: content-box;
+}
 body {
     font-family: 'Press Start 2P', cursive;
     margin: 0;
+    height: 98vh;
     overflow: hidden;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +34,6 @@ body {
     border-radius: 10px;
     padding: 40px 20px;
     width: 90%;
-    width: 100%;
     animation: fadeIn 2s ease-in-out, pulse 2s infinite;
 }
 
