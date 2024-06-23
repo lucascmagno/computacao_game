@@ -69,6 +69,15 @@ body {
     box-shadow: 0 8px 15px rgba(0, 255, 0, 0.5);
 }
 
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 0 2px #00ff00, 0 0 0 4px #00ff00, 0 0 0 6px #00ff00;
+    }
+    to {
+        text-shadow: 0 0 0 4px #00ff00, 0 0 0 6px #00ff00, 0 0 0 8px #00ff00;
+    }
+}
+
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
