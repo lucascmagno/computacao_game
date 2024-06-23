@@ -45,16 +45,16 @@ h1 {
     font-size: 1.5em;
     margin-bottom: 20px;
     color: #00ff00;
-    text-shadow: 0 0 6px #00ff00;
+    text-shadow: 0 0 4px #00ff00;
     animation: textGlow 1.5s infinite alternate;
 }
 
 @keyframes textGlow {
     from {
-        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+        text-shadow: 0 0 0 2px #00ff00, 0 0 0 4px #00ff00, 0 0 0 6px #00ff00;
     }
     to {
-        text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+        text-shadow: 0 0 0 4px #00ff00, 0 0 0 6px #00ff00, 0 0 0 8px #00ff00;
     }
 }
 
@@ -65,6 +65,7 @@ h1 {
 }
 
 .btn {
+    width: 150px;
     background-color: #00ff00;
     color: #222;
     border: 2px solid #00cc00;
@@ -112,6 +113,19 @@ h1 {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 8px 15px rgba(255, 0, 255, 0.5);
     color: #fff;
+}
+
+#restart-btn {
+    width: 200px;
+    padding: 15px 30px;
+    font-size: 1rem;
+    background-color: #00ff00;
+    color: black;
+    border: 2px solid #00cc00;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
 }
 
 .hide {
