@@ -126,3 +126,10 @@ body {
     }
 }
 
+p{
+    text-align: justify
+}
+
+h1{
+    line-height: 1.3em
+}
