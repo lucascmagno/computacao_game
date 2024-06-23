@@ -95,9 +95,9 @@ h1 {
 }
 
 .next-btn {
-    background-color: #ff00ff;
-    color: #222;
-    border: 2px solid #cc00cc;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #00ff00;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
@@ -108,10 +108,10 @@ h1 {
 }
 
 .next-btn:hover {
-    background-color: #cc00cc;
-    border-color: #990099;
+    background-color: #00ff00;
+    border-color: #00cc00;
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 15px rgba(255, 0, 255, 0.5);
+    box-shadow: 0 8px 15px #00cc00;
     color: #fff;
 }
 
