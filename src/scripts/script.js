@@ -45,6 +45,7 @@ const trueButton = document.getElementById('true-btn');
 const falseButton = document.getElementById('false-btn');
 const scoreContainer = document.getElementById('score-container');
 const scoreElement = document.getElementById('score');
+const feedbackElement = document.getElementById('feedback');
 const restartButton = document.getElementById('restart-btn');
 
 let currentQuestionIndex = 0;
@@ -86,7 +87,7 @@ function selectAnswer(e) {
     setTimeout(() => {
         document.body.classList.remove('flash-green');
         document.body.classList.remove('flash-red');
-    }, 500);
+    }, 300);
     showAnswer(correct);
 }
 
@@ -115,6 +116,15 @@ function nextQuestion() {
 
 function showScore() {
     scoreElement.innerText = `Você acertou ${score} de ${questions.length} perguntas.`;
+    let feedbackMessage;
+    if (score <= 2) {
+        feedbackMessage = "Péssima, mas pode melhorar refazendo o quiz!";
+    } else if (score > 2 && score < 5) {
+        feedbackMessage = "Foi bem, e na próxima com certeza acertará tudo!";
+    } else if (score === questions.length) {
+        feedbackMessage = "Incrível! Você já sabe tudo sobre licenciatura em computação!";
+    }
+    feedbackElement.innerText = feedbackMessage;
     scoreContainer.classList.remove('hide');
     scoreContainer.classList.add('fade-in');
     questionContainer.classList.add('hide');
