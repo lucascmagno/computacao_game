@@ -28,6 +28,11 @@ const questions = [
         question: "A licenciatura em computação pode levar a uma carreira acadêmica?",
         correctAnswer: true,
         explanation: "VERDADE: Após a graduação, muitos licenciados optam por seguir estudos de pós-graduação, como mestrado e doutorado, e se tornam pesquisadores ou professores universitários."
+    },
+    {
+        question: "Fazendo licenciatura em computação eu só vou fazer estágio na docência?",
+        correctAnswer: false,
+        explanation: "FALSO: Licenciatura em Computação tem 4 estágios obrigatórios, podendo ser os 4 na docência ou no mínimo 2 na docência, ou seja, você poderá fazer 2 estágios na docência e 2 estágios técnicos em empresas. Sendo assim, você poderá ter experiência em ambas as áreas e escolher qual seguir após a graduação"
     }
 ];
 
