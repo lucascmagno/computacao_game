@@ -119,7 +119,7 @@ function showScore() {
     let feedbackMessage;
     if (score <= 2) {
         feedbackMessage = "Péssima, mas pode melhorar refazendo o quiz!";
-    } else if (score > 2 && score < 5) {
+    } else if (score > 2 && score < questions.length) {
         feedbackMessage = "Foi bem, e na próxima com certeza acertará tudo!";
     } else if (score === questions.length) {
         feedbackMessage = "Incrível! Você já sabe tudo sobre licenciatura em computação!";
