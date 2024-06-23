@@ -1,40 +1,110 @@
-/* Estilos para a página inicial */
+body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: #fff;
+}
+
+#starfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
 #intro-container {
     text-align: center;
-    margin-top: 100px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 40px 20px;
+    width: 90%;
+    width: 100%;
+    animation: fadeIn 2s ease-in-out, pulse 2s infinite;
 }
 
 #intro-container h1 {
-    font-size: 2.5rem;
-    color: white;
+    font-size: 1.7rem;
+    color: #00ff00;
+    text-shadow: 0 0 2px #00ff00;
+    margin-bottom: 20px;
+    animation: textGlow 1.5s infinite alternate;
 }
 
 #intro-container img {
     max-width: 100%;
     border-radius: 10px;
-    margin-top: 20px;/* Sombra ao redor da imagem */
+    margin-top: 20px;
 }
 
 #intro-container p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.8);
-    line-height: 1.5;
+    line-height: 1.5em;
     margin: 20px auto;
-    max-width: 80%;
+    max-width: 90%;
 }
 
 #start-btn {
     padding: 15px 30px;
-    font-size: 1.2rem;
-    background-color: white;
+    font-size: 1rem;
+    background-color: #00ff00;
     color: black;
-    border: none;
+    border: 2px solid #00cc00;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
 }
 
 #start-btn:hover {
-    background-color: lightgray;
-    transform: scale(1.1);
+    background-color: #00cc00;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 255, 0, 0.5);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
 }

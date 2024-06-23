@@ -154,3 +154,35 @@ h1 {
 #answer-reveal {
     animation: revealAnswer 0.5s forwards;
 }
+
+/* Ajuste do botão Falso para vermelho */
+#false-btn {
+    background-color: #ff0000;
+    color: #fff;
+    border: 2px solid #cc0000;
+}
+
+#false-btn:hover {
+    background-color: #cc0000;
+    border-color: #990000;
+    box-shadow: 0 8px 15px rgba(255, 0, 0, 0.5);
+}
+
+/* Adicionando classes de flash para feedback visual */
+.flash-green {
+    animation: flashGreen 0.5s;
+}
+
+.flash-red {
+    animation: flashRed 0.5s;
+}
+
+@keyframes flashGreen {
+    from { background-color: #00ff00; }
+    to { background-color: black; }
+}
+
+@keyframes flashRed {
+    from { background-color: #ff0000; }
+    to { background-color: black; }
+}

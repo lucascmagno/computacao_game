@@ -74,7 +74,14 @@ function selectAnswer(e) {
     const correct = selectedButton.dataset.correct === 'true';
     if (correct) {
         score++;
+        document.body.classList.add('flash-green');
+    } else {
+        document.body.classList.add('flash-red');
     }
+    setTimeout(() => {
+        document.body.classList.remove('flash-green');
+        document.body.classList.remove('flash-red');
+    }, 500);
     showAnswer(correct);
 }
 
