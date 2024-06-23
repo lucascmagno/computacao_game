@@ -52,15 +52,23 @@ body {
 }
 
 #start-btn {
-    padding: 15px 30px;
-    font-size: 1rem;
-    background-color: #00ff00;
-    color: black;
-    border: 2px solid #00cc00;
-    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #00ff00;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+    font-size: 1em;
     text-transform: uppercase;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+#start-btn:hover{
+    background-color: #00ff00;
+    border-color: #00cc00;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 15px #00cc00;
+    color: #fff;
 }
 
 #start-btn:hover {
