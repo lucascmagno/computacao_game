@@ -6,18 +6,32 @@
     <title>Quiz de Licenciatura em Computação</title>
     <link rel="stylesheet" href="./src/styles/index.css">
     <link rel="stylesheet" href="./src/styles/indexQuery.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="./src/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <canvas id="starfield"></canvas>
-    <div id="intro-container">
-        <h1>Bem-vindo ao Quiz de Licenciatura em Computação!</h1>
-        <img id="img_principal" src="./src/img/tux-linux-penguin.gif" alt="Imagem de Computação">
-        <p>Teste seus conhecimentos sobre a licenciatura em computação com nosso quiz. Responda às perguntas e veja o quanto você sabe sobre essa área fascinante!</p>
-        <a href="./quiz.html" target="_self"><button id="start-btn">Iniciar Quiz</button></a>
+    <div id="nav-container">
+        <button id="curiosities-btn" class="tab-btn" onclick="showTab('curiosities')">Curiosidades</button>
+        <button id="intro-btn" class="tab-btn hide" onclick="showTab('intro')">Início</button>
     </div>
-    <script src="./src/scripts/starfieldIndex.js"></script>
-    <script src="./src/scripts/script.js"></script>
+    <div id="content-container">
+        <div id="intro-container" class="tab-content active">
+            <h1>Bem-vindo ao Quiz de Licenciatura em Computação!</h1>
+            <img id="img_principal" src="./src/img/tux-linux-penguin.gif" alt="Imagem de Computação">
+            <p>Teste seus conhecimentos sobre a licenciatura em computação com nosso quiz. Responda às perguntas e veja o quanto você sabe sobre essa área fascinante!</p>
+            <a href="./quiz.html" target="_self"><button id="start-btn">Iniciar Quiz</button></a>
+        </div>
+        <div id="curiosities-container" class="tab-content">
+            <h1>Curiosidades sobre Licenciatura em Computação</h1>
+            <ul>
+                <li>O curso de Licenciatura em Computação habilita os alunos para ensinar computação em escolas de ensino fundamental e médio.</li>
+                <li>Os licenciados em computação podem trabalhar tanto como professores quanto em diversas áreas de tecnologia.</li>
+                <li>O curso oferece uma base sólida em linguagens de programação, didática e metodologias de ensino.</li>
+                <li>Há uma alta demanda por profissionais de computação qualificados devido ao avanço das tecnologias.</li>
+                <li>Os licenciados podem seguir carreira acadêmica, atuando como pesquisadores e professores universitários.</li>
+            </ul>
+        </div>
+    </div>
+    <script src="./src/scripts/starfield.js"></script>
+    <script src="./src/scripts/curiosidades.js"></script>
 </body>
 </html>
