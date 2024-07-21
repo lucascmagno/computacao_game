@@ -10,8 +10,6 @@ html{
 body {
     font-family: 'Press Start 2P', cursive;
     margin: 0;
-    height: 98vh;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     flex-direction: column-reverse;
@@ -148,10 +146,10 @@ h1{
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    padding-right: 80px;
     width: 100%;
     align-items: end;
     justify-content: end;
+    margin-right: 50px;
 }
 
 .nav-center{
