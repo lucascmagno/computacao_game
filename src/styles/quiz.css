@@ -248,3 +248,18 @@ body.flash-red {
     display: block;
 }
 
+.span_true{
+    color: #00ff00;
+}
+
+#answer-reveal{
+    padding: 20px;
+}
+
+.true{
+    color: #00cc00;
+}
+
+.false{
+    color: #ff0000;
+}

@@ -2,7 +2,7 @@ const questions = [
     {
         question: "O curso prepara o aluno para ensinar computação?",
         correctAnswer: true,
-        explanation: "Verdade: A licenciatura em computação é projetada para formar professores capazes de ensinar informática e computação nas escolas, tanto no ensino fundamental quanto no médio. Além das disciplinas técnicas, os alunos também estudam metodologias de ensino, didática e outras disciplinas pedagógicas para se tornarem educadores eficazes."
+        explanation: "VERDADE: A licenciatura em computação é projetada para formar professores capazes de ensinar informática e computação nas escolas, tanto no ensino fundamental quanto no médio. Além das disciplinas técnicas, os alunos também estudam metodologias de ensino, didática e outras disciplinas pedagógicas para se tornarem educadores eficazes."
     },
     {
         question: "O curso de licenciatura em computação é apenas para quem quer ser professor?",
@@ -20,7 +20,7 @@ const questions = [
         explanation: "FALSO: Embora a matemática seja uma parte importante do curso, a licenciatura em computação abrange várias áreas, como ensino de tecnologias, programação, e pedagogia. Pessoas com diferentes interesses e habilidades podem se sair bem no curso. Como qualquer outro curso superior, a licenciatura em computação exige dedicação, estudo constante e atualização contínua devido às rápidas mudanças na tecnologia."
     },
     {
-        question: "O mercado de trabalho está em expansão?",
+        question: "O mercado de trabalho de tecnologia está em expansão?",
         correctAnswer: true,
         explanation: "VERDADE: Com a crescente inclusão da tecnologia na educação e o avanço das TICs (Tecnologias da Informação e Comunicação), a demanda por profissionais qualificados em computação é alta e deve continuar crescendo em todas as áreas."
     },
@@ -51,7 +51,15 @@ const restartButton = document.getElementById('restart-btn');
 let currentQuestionIndex = 0;
 let score = 0;
 
+function shuffleQuestions() {
+    for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+}
+
 function startGame() {
+    shuffleQuestions();
     currentQuestionIndex = 0;
     score = 0;
     scoreContainer.classList.add('hide');
@@ -120,7 +128,7 @@ function showScore() {
     if (score <= 2) {
         feedbackMessage = "Péssima, mas pode melhorar refazendo o quiz!";
     } else if (score > 2 && score < questions.length) {
-        feedbackMessage = "Foi bem, e na próxima com certeza acertará tudo!";
+        feedbackMessage = "Você foi bem, e na próxima com certeza acertará tudo!";
     } else if (score === questions.length) {
         feedbackMessage = "Incrível! Você já sabe tudo sobre licenciatura em computação!";
     }
