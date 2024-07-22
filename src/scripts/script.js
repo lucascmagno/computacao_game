@@ -107,9 +107,18 @@ function showAnswer(correct) {
     nextButton.classList.add('show');
     trueButton.disabled = true;
     falseButton.disabled = true;
+
+    answerRevealElement.classList.remove('true');
+    answerRevealElement.classList.remove('false');
+    if(questions[currentQuestionIndex].correctAnswer === true) {
+        answerRevealElement.classList.add('true');
+    }
+    else{
+        answerRevealElement.classList.add('false');
+    }
 }
 
-function nextQuestion() {
+function nextQuestion() { 
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         trueButton.disabled = false;

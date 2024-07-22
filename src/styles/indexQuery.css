@@ -43,6 +43,15 @@
         padding: 8px 16px;
         font-size: 0.9rem;
     }
+    #nav-container {
+        align-items: center;
+        justify-content: center;
+        margin-right: 0;
+    }
+    .tab-btn {
+        width: 150px;
+        height: 30px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -61,5 +70,14 @@
 
     #intro-container {
         margin-top: 50px;
+    }
+    #nav-container {
+        align-items: center;
+        justify-content: center;
+        margin-right: 0;
+    }
+    .tab-btn {
+        width: 150px;
+        height: 30px;
     }
 }
