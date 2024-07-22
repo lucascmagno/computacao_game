@@ -8,7 +8,7 @@ html{
     box-sizing: content-box;
 }
 body {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Press Start 2P', yu-gothic, sans-serif;
     margin: 0;
     display: flex;
     justify-content: center;
